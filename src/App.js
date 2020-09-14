@@ -1,10 +1,13 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios"
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import loginForm from "../src/components/loginForm/LoginForm"
+import RegistrationForm from "./components/registrationForm/RegistrationForm"
+import Home from "../src/components/Home/Home";
+import Profile from "../src/components/profile/Profile";
 import NotFound from "./pages/NotFound";
 import 'semantic-ui-css/semantic.min.css';
+import { login } from "./redux/stateReducers/auth";
 
 class App extends React.Component {
   componentDidMount() {
@@ -22,8 +25,18 @@ class App extends React.Component {
       <Switch>
         <Route
           exact
-          path="/"
+          path="/Home"
           component={Home}
+        />
+        <Route
+          exact
+          path="/Registration"
+          component={RegistrationForm}
+        />
+        <Route
+          exact
+          path="/login"
+          component={loginForm}
         />
         <Route
           exact
@@ -35,6 +48,7 @@ class App extends React.Component {
           path="*"
           component={NotFound}
         />
+        
       </Switch>
     );
   }
