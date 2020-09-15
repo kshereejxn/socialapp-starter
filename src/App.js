@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import axios from "axios"
 import "../src/App.css"
 import loginForm from "../src/components/loginForm/LoginForm"
 import RegistrationForm from "./components/registrationForm/RegistrationForm"
@@ -14,9 +13,7 @@ import "./images/heros.jpg"
 class App extends React.Component {
   render() {
     return (
-      <div  className="container">
-
-
+      // <div  className="container">
       <Switch>
         <Route
           exact
@@ -45,7 +42,7 @@ class App extends React.Component {
         />
 
       </Switch>
-      </div>
+      // </div>
     );
   }
 }
