@@ -5,17 +5,22 @@ import { userIsNotAuthenticated } from "../../redux/HOCs";
 
 import "./home.css"
 
+
 class Home extends React.Component {
     render() {
         return (
+            
             <div className="Home">
-                <Menu />
-                <div className="homepagestuff">
-                    <div className="content">
-                    </div>
+            <Menu />
+            <div className="homepagestuff">
+                <div className="content">
                 </div>
+            </div>
+       
+       </div>
+                
            
-           </div>
+           
             
         );
     }
