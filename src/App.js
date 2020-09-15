@@ -10,22 +10,13 @@ import NotFound from "./pages/NotFound";
 import 'semantic-ui-css/semantic.min.css';
 import "./images/heros.jpg"
 
-class App extends React.Component {
-  componentDidMount() {
-    axios.get("https://socialapp-api.herokuapp.com/docs/")
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
 
+class App extends React.Component {
   render() {
     return (
       <div  className="container">
-     
-    
+
+
       <Switch>
         <Route
           exact
@@ -52,7 +43,7 @@ class App extends React.Component {
           path="*"
           component={NotFound}
         />
-        
+
       </Switch>
       </div>
     );
