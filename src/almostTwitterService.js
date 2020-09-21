@@ -12,5 +12,6 @@ class AlmostTwitterService {
     getUsers(){
         return this.client.get(this.url + "/users");
     }
+    
 }
 export default AlmostTwitterService;

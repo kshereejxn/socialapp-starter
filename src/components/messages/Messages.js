@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from 'semantic-ui-react'
+import { Button, Message } from 'semantic-ui-react'
 
 const ButtonExampleConditionals = () => (
   <Button.Group>
@@ -16,4 +16,4 @@ return <div>
 
 
 
-export default button
+export default Message.js
