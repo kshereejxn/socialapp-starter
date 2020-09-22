@@ -4,11 +4,8 @@ import Menu from "../components/menu/Menu";
 import { userIsNotAuthenticated } from "../redux/HOCs";
 import RegistrationForm from "../components/registrationForm/RegistrationForm";
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> dev-branch
 class Home extends React.Component {
   render() {
     return (
