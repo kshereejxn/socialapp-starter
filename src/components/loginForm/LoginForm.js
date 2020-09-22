@@ -28,10 +28,12 @@ class LoginForm extends React.Component {
   render() {
     const { loading, error } = this.props;
     return (
+
+      <div className="hero">
      <div className="menu">
                 <Menu />
              
-                
+     
 
             
      <div className="LoginForm">
@@ -57,6 +59,7 @@ class LoginForm extends React.Component {
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
+      </div>
       </div>
       </div>
     );

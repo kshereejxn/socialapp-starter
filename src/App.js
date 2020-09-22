@@ -4,19 +4,17 @@ import axios from "axios"
 import "../src/App.css"
 import loginForm from "../src/components/loginForm/LoginForm"
 import RegistrationForm from "./components/registrationForm/RegistrationForm"
-import Home from "../src/components/Home/Home";
 import Profile from "../src/components/profile/Profile";
+import Home from "../src/components/Home/Home";
 import NotFound from "./pages/NotFound";
 import 'semantic-ui-css/semantic.min.css';
-import MessageFeed from "./pages/MessageFeed"
-import "./images/heros.jpg"
+import "./images/heros.jpg";
 
 
 class App extends React.Component {
   render() {
     return (
-      <div  className="container">
-
+      
 
       <Switch>
         <Route
@@ -51,7 +49,6 @@ class App extends React.Component {
         />
 
       </Switch>
-      </div>
     );
   }
 }
