@@ -3,6 +3,7 @@ import Menu from "../menu/Menu";
 import { userIsAuthenticated } from "../../redux/HOCs";
 import ProfileUserCard from "../profileUserCard/ProfileUserCard";
 
+
 class Profile extends React.Component {
   render() {
     return (
@@ -10,6 +11,7 @@ class Profile extends React.Component {
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <h2>Profile</h2>
         <ProfileUserCard />
+        
       </div>
     );
   }

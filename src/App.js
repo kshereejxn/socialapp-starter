@@ -8,6 +8,7 @@ import Home from "../src/components/Home/Home";
 import Profile from "../src/components/profile/Profile";
 import NotFound from "./pages/NotFound";
 import 'semantic-ui-css/semantic.min.css';
+import MessageFeed from "./pages/MessageFeed"
 import "./images/heros.jpg"
 
 
@@ -37,6 +38,11 @@ class App extends React.Component {
           exact
           path="/profile/:username"
           component={Profile}
+        />
+        <Route
+          exact
+          path="/messagefeed"
+          component={MessageFeed}
         />
         <Route
           exact
