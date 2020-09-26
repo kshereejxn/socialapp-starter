@@ -13,6 +13,10 @@ class DataService {
         const loginData = JSON.parse(localStorage.getItem("login"))
         const {username} = loginData.result.username
     }
+    getToken() {
+        const { username, token} = store.getState().auth.login.result
+        return token
+    }
         getRecentMessages() {
             return this.client
             .get(this.baseURL + "/messages?limit=50")
@@ -20,7 +24,7 @@ class DataService {
                 return response.data.messages
             })
         }
-        postLike(messageId){
+     postLike(messageId){
                 const requestBody = {messageId}
                 const config ={ 
                     headers: {
@@ -29,7 +33,7 @@ class DataService {
                 }
                return this.client
                .post(this.baseURL +"/likes", requestBody,config )
-                .then(response => response.data.like)
+                .then(response => response.result.data)
         }
     }
 
