@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Error from "../assets/cat404.gif";
+import Error from "../assets/404.gif";
 
 
 class NotFound extends React.Component {
@@ -8,9 +8,9 @@ class NotFound extends React.Component {
     return (
       <div>
       <div className="NotFound">
-        <img src={Error} alt="404 page"/>
+       <img src={Error} alt="404 page"/>
        
-        <Link to="/">Find Home</Link>
+       <h1> <Link to="/">Home</Link></h1>
       
       </div>
       </div>
