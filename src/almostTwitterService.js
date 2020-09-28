@@ -12,5 +12,8 @@ class AlmostTwitterService {
     getUsers(){
         return this.client.get(this.url + "/users");
     }
+    ogin(){
+        return this.client.post (this.url + "/auth/login");
+    }
 }
 export default AlmostTwitterService;
