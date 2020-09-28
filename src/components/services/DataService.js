@@ -1,36 +1,42 @@
-import axios from "axios"
-import {store } from "../../redux"
-class DataService {
-    constructor (
-        baseURL ="https://socialapp-api.herokuapp.com",
-        client = axios.create()
+import axios from 'axios';
 
-    ){
-        this.baseURL = baseURL  
-        this.client = client
+
+class DataService {
+
+    constructor(url = "https://socialapp-api.herokuapp.com", client = axios.create()){
+        this.url = url;
+        this.client = client;
+    }
+    registerUser(userData){
+        return this.client.post(this.url + "/users", userData);
+    }
+    getUsers(){
+        return this.client.get(this.url + "/users");
+    }
+    googleLogin(){
+        return this.client.get (this.url + "/auth/google/login");
     }
     getUserName (){
         const loginData = JSON.parse(localStorage.getItem("login"))
         const {username} = loginData.result.username
     }
-        getRecentMessages() {
+    getRecentMessages() {
             return this.client
-            .get(this.baseURL + "/messages?limit=50")
+            .get(this.url + "/messages?limit=20")
             .then(response => {
                 return response.data.messages
             })
         }
-        postLike(messageId){
-                const requestBody = {messageId}
-                const config ={ 
-                    headers: {
-                        Authorization: `Bearer ${getToken()}`
-                    }
-                }
-               return this.client
-               .post(this.baseURL +"/likes", requestBody,config )
-                .then(response => response.data.like)
-        }
-    }
-
-export default DataService
+    // postLike(messageId){
+    //         const requestBody = {messageId}
+    //          const config ={
+    //              headers: {
+    //                 Authorization: `Bearer ${getToken()}`
+    //                 }
+    //             }
+    //         return this.client
+    //         .post(this.baseURL +"/likes", requestBody,config )
+    //         .then(response => response.data.like)
+    //     }
+}
+export default DataService;

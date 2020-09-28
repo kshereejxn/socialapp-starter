@@ -1,9 +1,8 @@
 import React from "react";
 import Spinner from "react-spinkit";
-//import { withAsyncAction } from "../../redux/HOCs";
+import { withAsyncAction } from "../../redux/HOCs";
 import "./RegistrationForm.css";
-import AlmostTwitterService from "../../AlmostTwitterService";
-import Menu from "../menu/Menu";
+import AlmostTwitterService from "../../almostTwitterService";
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -31,9 +30,7 @@ class RegistrationForm extends React.Component {
   render() {
     const { loading, error } = this.props;
     return (
-     <div className="hero">
-      <div className="menu"> 
-      <Menu/>
+     
      <div className="RegistrationForm">
         <form id="registration-form" onSubmit={this.handleRegistration}>
           <label htmlFor="username">Username</label>
@@ -65,8 +62,7 @@ class RegistrationForm extends React.Component {
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>
-      </div>
-      </div>
+      
     );
   }
 }

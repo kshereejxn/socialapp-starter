@@ -1,5 +1,9 @@
 .Menu {
+<<<<<<< HEAD
+  background-color:lightblue;
+=======
   background-color: rgb(5, 196, 27);
+>>>>>>> 46ec1dac4f5a93e953109e86110e4d31cdb19240
   display: flex;
 
   justify-content: space-between;
@@ -17,7 +21,7 @@
   position: relative;
   padding: 10px;
   margin: 0;
-  
+
 }
 
 #menu-links a {
