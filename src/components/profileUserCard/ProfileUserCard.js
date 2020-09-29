@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React from 'react'
 import DeleteAccount from './DeleteAccount';
+=======
+import React from "react";
+import DeleteAccount from "../deleteAccount/DeleteAccount";
+>>>>>>> katrine
 import {
   Card,
   Icon,
@@ -8,7 +13,11 @@ import {
   Grid,
   Form,
   Advertisement
+<<<<<<< HEAD
 } from 'semantic-ui-react'
+=======
+} from 'semantic-ui-react';
+>>>>>>> katrine
 
 const description = [
   'Matthew is a violinist with 2 years experience in the wedding industry.',
@@ -42,6 +51,7 @@ const ProfileUserCard = () => (
     <DeleteAccount/>
     </Card>
   </Grid.Column>
+<<<<<<< HEAD
 
   <Grid.Column >
       <Form Post>
@@ -61,3 +71,23 @@ const ProfileUserCard = () => (
 
 
 export default ProfileUserCard
+=======
+
+  <Grid.Column >
+      <Form Post>
+      <Form.TextArea />
+      <Button content='Post' labelPosition='left' icon='edit' primary />
+      </Form>
+  </Grid.Column>
+
+  <Grid.Column >
+  <Advertisement unit='vertical rectangle' test='Vertical Rectangle' />
+  <Advertisement unit='vertical rectangle' test='Vertical Rectangle' />
+  <Advertisement unit='vertical rectangle' test='Vertical Rectangle' />
+  </Grid.Column>
+
+  </Grid>
+)
+
+export default ProfileUserCard;
+>>>>>>> katrine

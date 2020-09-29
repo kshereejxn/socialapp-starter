@@ -1,8 +1,11 @@
 import React from "react";
 import Spinner from "react-spinkit";
+<<<<<<< HEAD
 import { withAsyncAction } from "../../redux/HOCs";
+=======
+>>>>>>> katrine
 import "./RegistrationForm.css";
-import DataService from "../../services/DataService";
+import DataService from "../../services/dataService";
 import Menu from "../menu/Menu";
 
 class RegistrationForm extends React.Component {
