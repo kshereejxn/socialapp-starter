@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "../menu/Menu";
 import { userIsAuthenticated } from "../../redux/HOCs";
 import ProfileUserCard from "../profileUserCard/ProfileUserCard";
-import GetUsers from "../getusers/GetUsers";
+
 
 
 class Profile extends React.Component {
@@ -13,7 +13,7 @@ class Profile extends React.Component {
         <h2>Profile</h2>
         <ProfileUserCard />
         <h2>Get Users</h2>
-        <GetUsers/>
+        
       </div>
     );
   }

@@ -15,12 +15,12 @@ class LoginForm extends React.Component {
       username: "",
       password: ""
     };
-    this.client = new DataService();
+    
   }
 
   handleLogin = e => {
     e.preventDefault();
-    this.client.login(this.state).then (result => {alert (result.data)})
+    this.props.login(this.state).then (result => {alert (result.data)})
   };
 
   handleChange = e => {

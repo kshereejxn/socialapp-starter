@@ -6,7 +6,6 @@ import loginForm from "../src/components/loginForm/LoginForm";
 import RegistrationForm from "./components/registrationForm/RegistrationForm";
 import Profile from "../src/components/profile/Profile";
 import Home from "../src/components/Home/Home";
-import Profile from "../src/components/profile/Profile";
 import NotFound from "./pages/NotFound";
 import 'semantic-ui-css/semantic.min.css';
 import "./images/heros.jpg";
@@ -14,19 +13,10 @@ import MessageFeed from "../src/pages/MessageFeed";
 
 
 class App extends React.Component {
-  componentDidMount() {
-    axios.get("https://socialapp-api.herokuapp.com/docs/")
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }
-
   render() {
     return (
-      // <div  className="container">
+      
+
       <Switch>
         <Route
           exact
@@ -60,7 +50,6 @@ class App extends React.Component {
         />
 
       </Switch>
-      // </div>
     );
   }
 }

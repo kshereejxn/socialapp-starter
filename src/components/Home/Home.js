@@ -3,7 +3,7 @@ import React from "react";
 import Menu from "../menu/Menu";
 import { userIsNotAuthenticated } from "../../redux/HOCs";
 
-import "./Home.css";
+import "./home.css";
 
 
 class Home extends React.Component {
