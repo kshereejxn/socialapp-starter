@@ -1,5 +1,5 @@
 import React from"react"
-import "./Message.css"
+
 import DataService from "../services/dataService"
 class Message extends React.Component{
 
@@ -9,7 +9,8 @@ class Message extends React.Component{
         const dataService = new DataService()
         const username = dataService.getUserName()
         if (this.props.likes.some(like => like.username === username)) return
-            DataService
+            
+        dataService
             .postLike(this.props.id)
             .then(like => {
                 console.log(like)
@@ -21,10 +22,10 @@ class Message extends React.Component{
     render(){
         return(
             <li className="Message">
-                At{this.props.createAt}, {this.props.username}posted:
+                At{this.props.createdAt}, {this.props.username}posted:
                 <br />
                 {this.props.text}
-                <div class="like-count">
+                <div className="like-count">
                     Likes: {this.state.likeCount}
                     </div>
                     <button onClick={this.handleLike}><span role="img" aria-label="Like">like</span></button>

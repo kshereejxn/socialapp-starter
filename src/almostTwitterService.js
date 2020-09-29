@@ -1,5 +1,5 @@
 import axios from 'axios';
-import AlmostTwitterService from ""
+
 class AlmostTwitterService {
 
     constructor(url = 'https://socialapp-api.herokuapp.com', client = axios.create()){
@@ -12,8 +12,6 @@ class AlmostTwitterService {
     getUsers(){
         return this.client.get(this.url + "/users");
     }
-    login(){
-        return this.client.
-    }
+   
 }
 export default AlmostTwitterService;

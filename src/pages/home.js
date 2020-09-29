@@ -1,9 +1,10 @@
-/*import React from "react";
+import React from "react";
 import LoginForm from "../components/loginForm/LoginForm";
 import Menu from "../components/menu/Menu";
 import { userIsNotAuthenticated } from "../redux/HOCs";
 import RegistrationForm from "../components/registrationForm/RegistrationForm";
 
+import "./home.css"
 
 
 class Home extends React.Component {
@@ -17,9 +18,9 @@ class Home extends React.Component {
         <hr/>
         <RegistrationForm />
       </div>
-      </div>
+      
     );
   }
 }
 
-export default userIsNotAuthenticated(Home);*/
+export default userIsNotAuthenticated(Home);
