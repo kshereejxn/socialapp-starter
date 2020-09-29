@@ -13,19 +13,11 @@ class LoginForm extends React.Component {
       username: "",
       password: ""
     };
-<<<<<<< HEAD
-    
-=======
->>>>>>> katrine
   }
 
   handleLogin = e => {
     e.preventDefault();
-<<<<<<< HEAD
-    this.props.login(this.state).then (result => {alert (result.data)})
-=======
     this.props.login(this.state). then (result => {alert (result.data)})
->>>>>>> katrine
   };
 
   handleChange = e => {

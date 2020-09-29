@@ -1,9 +1,5 @@
 import React from "react";
 import Spinner from "react-spinkit";
-<<<<<<< HEAD
-import { withAsyncAction } from "../../redux/HOCs";
-=======
->>>>>>> katrine
 import "./RegistrationForm.css";
 import DataService from "../../services/dataService";
 import Menu from "../menu/Menu";

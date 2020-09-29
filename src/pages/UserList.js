@@ -37,6 +37,5 @@ return(
         </div>
     )
 }*/
-//}
-
+//
 export default UserList;
