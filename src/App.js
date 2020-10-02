@@ -1,25 +1,32 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css';
 import "../src/App.css"
 import loginForm from "../src/components/loginForm/LoginForm"
 import RegistrationForm from "./components/registrationForm/RegistrationForm"
-import Home from "../src/components/Home/Home";
+import Home from "../src/pages/Home";
 import Profile from "../src/components/profile/Profile";
 import NotFound from "./pages/NotFound";
-import 'semantic-ui-css/semantic.min.css';
-import "./images/heros.jpg"
+import MessageFeed from "./components/messages/MessageFeed"
+
 
 
 class App extends React.Component {
+
   render() {
     return (
-      // <div  className="container">
+      <div className="App">
       <Switch>
         <Route
           exact
-          path="/"
+          path="/home"
           component={Home}
         />
+         <Route
+         exact
+         path="/messagefeed"
+         component={MessageFeed} //Doesnt need a page (I think) redirected to middle column grid in profile page.
+         />
         <Route
           exact
           path="/Registration"
@@ -40,9 +47,8 @@ class App extends React.Component {
           path="*"
           component={NotFound}
         />
-
       </Switch>
-      // </div>
+      </div>
     );
   }
 }

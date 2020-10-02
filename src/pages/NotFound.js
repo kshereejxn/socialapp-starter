@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { Image } from 'semantic-ui-react'
 
 class NotFound extends React.Component {
   render() {
     return (
       <div className="NotFound">
-        Feel Alone? {this.props.location.pathname}
-        <Link to="/">Go Home</Link>
+        <Image as={Link} src={require('../images/404.gif')} to='/Users'/>
+        404! {this.props.location.pathname}
+        <Link to="/login">Go Home</Link>
       </div>
     );
   }
 }
-//<a href='https://www.freepik.com/vectors/business'>Business vector created by pikisuperstar - www.freepik.com</a>
+
 export default NotFound;

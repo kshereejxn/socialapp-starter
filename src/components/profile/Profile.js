@@ -1,21 +1,25 @@
 import React from "react";
-<<<<<<< HEAD
-import ProfileUserCard from "../../components/profileUserCard/ProfileUserCard";
-import Menu from "../menu/Menu";
-import { userIsAuthenticated } from "../../redux/HOCs";
-=======
-import Menu from "../menu/Menu";
 import { userIsAuthenticated } from "../../redux/HOCs";
 import ProfileUserCard from "../profileUserCard/ProfileUserCard";
->>>>>>> 46ec1dac4f5a93e953109e86110e4d31cdb19240
+// import GetUsers from "../getusers/GetUsers";
+import Navbar from "../menu/Navbar";
+import {
+  Segment,
+  Header
+} from "semantic-ui-react";
 
 class Profile extends React.Component {
   render() {
     return (
       <div className="Profile">
-        <Menu isAuthenticated={this.props.isAuthenticated} />
-        <h2>Profile</h2>
-        <ProfileUserCard />
+        <Navbar isAuthenticated={this.props.isAuthenticated} />
+        <Header as='h1' textAlign='center'>Profile</Header>
+        <Segment>
+          <ProfileUserCard />
+        </Segment>
+        {/* <h2>Get Users</h2> */}
+
+        {/* <GetUsers/> //not sure what this does. Commented out for now// */}
       </div>
     );
   }

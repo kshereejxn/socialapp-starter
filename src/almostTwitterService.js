@@ -12,5 +12,15 @@ class AlmostTwitterService {
     getUsers(){
         return this.client.get(this.url + "/users");
     }
+
+    login(){
+        return this.client.get(this.url + "/auth/login");
+    }
+
+    DeleteUser(){
+        return this.client.delete(this.url + "/users");
+    }
+
 }
+
 export default AlmostTwitterService;

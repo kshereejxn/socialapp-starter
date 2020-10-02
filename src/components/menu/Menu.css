@@ -1,17 +1,10 @@
-.Menu {
-<<<<<<< HEAD
+/* .Menu {
   background-color:lightblue;
-=======
-  background-color: rgb(5, 196, 27);
->>>>>>> 46ec1dac4f5a93e953109e86110e4d31cdb19240
   display: flex;
-
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
   border-radius: 1em;
-
-
 }
 
 
@@ -26,7 +19,6 @@
 
 #menu-links a {
   padding-right: 0.5em;
-  color: darkred;
-  text-decoration: underline;
+  color: rgb(75, 75, 220);
   cursor: pointer;
-}
+} */
