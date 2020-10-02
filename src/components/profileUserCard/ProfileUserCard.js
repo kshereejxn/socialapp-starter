@@ -1,5 +1,6 @@
 import React from 'react'
 import DeleteAccount from './DeleteAccount';
+// import MessageFeed from '../messages/MessageFeed'
 import {
   Card,
   Icon,
@@ -48,6 +49,8 @@ const ProfileUserCard = () => (
       <Form.TextArea />
       <Button content='Post' labelPosition='left' icon='edit' primary />
       </Form>
+      {/* <MessageFeed/> */}
+
   </Grid.Column>
 
   <Grid.Column >
