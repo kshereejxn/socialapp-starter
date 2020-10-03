@@ -2,9 +2,9 @@ import React from "react";
 import Spinner from "react-spinkit";
 //import { withAsyncAction } from "../../redux/HOCs";
 import "./RegistrationForm.css";
-import AlmostTwitterService from "../../almostTwitterService";
+import DataService from "../services/dataService"
 import Menu from "../menu/Menu";
-
+import { userIsNotAuthenticated } from "../../redux/HOCs";
 class RegistrationForm extends React.Component {
   constructor(props) {
     super(props)
@@ -13,7 +13,7 @@ class RegistrationForm extends React.Component {
       password: "",
       displayName: ""
     };
-    this.client = new AlmostTwitterService();
+    this.client = new DataService();
   }
 
   handleRegistration = e => {
@@ -31,44 +31,46 @@ class RegistrationForm extends React.Component {
   render() {
     const { loading, error } = this.props;
     return (
-     <div className="hero">
-      <div className="menu"> 
-      <Menu/>
-     <div className="RegistrationForm">
-        <form id="registration-form" onSubmit={this.handleRegistration}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="displayName">Display Name </label>
-          <input
-          type="text"
-          name="displayName"
-          required
-          onChange={this.handleChange}
-          />
-          <button type="submit" disabled={loading}>
-            Register
-          </button>
-        </form>
-        {loading && <Spinner name="circle" color="blue" />}
-        {error && <p style={{ color: "red" }}>{error.message}</p>}
-      </div>
-      </div>
+      <div>
+                 <Menu userIsNotAuthenticated={this.props.userIsNotAuthenticated} />
+
+        <div className="RegistrationForm">
+          <form id="registration-form" onSubmit={this.handleRegistration}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              autoFocus
+              required
+              onChange={this.handleChange}
+            />
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              required
+              onChange={this.handleChange}
+            />
+            <label htmlFor="displayName">Display Name </label>
+            <input
+              type="text"
+              name="displayName"
+              required
+              onChange={this.handleChange}
+            />
+            <div className="buttons">
+              <button type="submit" disabled={loading}>
+                Register
+              </button>
+              
+            </div>
+          </form>
+          {loading && <Spinner name="circle" color="blue" />}
+          {error && <p style={{ color: "red" }}>{error.message}</p>}
+        </div>
       </div>
     );
   }
 }
 
-export default RegistrationForm;
+export default userIsNotAuthenticated (RegistrationForm);

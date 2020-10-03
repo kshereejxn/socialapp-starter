@@ -4,7 +4,6 @@ class DataService {
   constructor(
     baseURL = "https://socialapp-api.herokuapp.com",
     client = axios.create()
-
   ) {
     this.baseURL = baseURL;
     this.client = client;
@@ -15,8 +14,8 @@ class DataService {
     return username;
   }
   getToken() {
-    const { token } = store.getState().auth.login.result
-    return token
+    const { token } = store.getState().auth.login.result;
+    return token;
   }
   getRecentMessages() {
     return this.client
@@ -24,6 +23,12 @@ class DataService {
       .then((response) => {
         return response.data.messages;
       });
+  }
+  registerUser(userData) {
+    return this.client.post(this.url + "/users", userData);
+  }
+  getUsers() {
+    return this.client.get(this.url + "/users");
   }
   postLike(messageId) {
     const requestBody = { messageId };
@@ -35,10 +40,20 @@ class DataService {
     return this.client
       .post(this.baseURL + "/likes", requestBody, config)
       .then((response) => response.data.like);
-  
- 
+  }
 }
- 
-}
+//DeleteLike(messageId) {
+//    const requestBody = { messageId };
+//    const config = {
+//      headers: {
+//        Authorization: `Bearer ${this.getToken()}`,
+ //     },
+//    };
+//    return this.client
+//      .post(this.baseURL + "/likes", requestBody, config)
+//      .then((response) => response.data.like);
+// }
+
+
 
 export default DataService

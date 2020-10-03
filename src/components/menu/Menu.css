@@ -1,5 +1,5 @@
 .Menu {
-  background-color: rgb(5, 196, 27);
+  background-color: rgb(58, 65, 59);
   display: flex;
 
   justify-content: space-between;
@@ -15,14 +15,14 @@
   display: flex;
   padding-left: 1em;
   position: relative;
-  padding: 10px;
-  margin: 0;
+  padding: 20px;
+  margin: 0px;
   
 }
 
 #menu-links a {
-  padding-right: 0.5em;
-  color: darkred;
-  text-decoration: underline;
+  padding-right: 2.5em;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
   cursor: pointer;
 }

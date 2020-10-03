@@ -10,7 +10,7 @@ import Profile from "../src/components/profile/Profile";
 
 import NotFound from "./pages/NotFound";
 import 'semantic-ui-css/semantic.min.css';
-import "./images/heros.jpg";
+
 
 
 class App extends React.Component {

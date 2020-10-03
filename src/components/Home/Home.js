@@ -1,26 +1,23 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import Menu from "../menu/Menu";
 import { userIsNotAuthenticated } from "../../redux/HOCs";
-
+import Login from "../loginForm/LoginForm"
 import "./home.css"
 
 
 class Home extends React.Component {
     render() {
         return (
-            <div className="hero">
-            <div className="test">
-            <Menu />
-            <div className="homepagestuff">
-               
-            </div>
-       
-            </div>
-            </div>
-           
-           
-            
+          <div>
+            <Menu userIsNotAuthenticated={this.props.userIsNotAuthenticated} />
+            <Login />
+            <button className="registerButton">
+             
+            </button>
+          </div>
         );
     }
 }
