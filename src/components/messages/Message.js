@@ -1,51 +1,73 @@
-import React from"react"
-
-import DataService from "../services/dataService"
+import React from "react";
+import { Form,  Button } from "semantic-ui-react";
+import DataService from "../services/dataService";
+import "./messageFeed.css";
 class Message extends React.Component {
-  state = { likeCount: this.props.likes.length };
-//
+  state = {
+    likes: this.props.likes,
+  };
+  //
   handleLike = () => {
     const dataService = new DataService();
     const username = dataService.getUserName();
-    if (this.props.likes.some((like) => like.username === username)) return;
+    const hasAlreadyLiked = this.state.likes.some(
+      (like) => like.username === username
+    );
+    if (hasAlreadyLiked) return;
 
     dataService.postLike(this.props.id).then((like) => {
-      console.log(like);
       this.setState((latestState) => ({
-        likeCount: latestState.likeCount + 1,
+        likes: [...latestState.likes, like],
       }));
     });
-
-    console.log(this.props.likes);
   };
- // handleDeleteLike = () => {
- //   const dataService = new DataService();
-  //  const username = dataService.getUserName();
- //   if (this.props.likes.some((like) => like.username === username)) return;
-//
- //   dataService.postLike(this.props.id).then((like) => {
- //     console.log(like);
- //     this.setState((latestState) => ({
- //       likeCount: latestState.likeCount + 1,
- //     }));
- //   });
-//
- //   console.log(this.props.likes);
- // };
+  handleDeleteLike = (event) => {
+    event.persist();
+    const dataService = new DataService();
+    const username = dataService.getUserName();
+
+    const like = this.state.likes.find((like) => like.username === username);
+    if (!like) return;
+
+    event.target.setAttribute("disabled", true);
+
+    const onSuccess = (response) => {
+      const handleState = (latestState) => ({
+        likes: latestState.likes.filter((like) => like.id !== response.data.id),
+      });
+
+      const thenDo = () => event.target.removeAttribute("disabled");
+
+      this.setState(handleState, thenDo);
+    };
+
+    const onError = (error) => event.target.removeAttribute("disabled");
+
+    dataService.deleteLike(like.id).then(onSuccess).catch(onError);
+  };
+
   render() {
     return (
-      <li className="Message">
-        At{this.props.createdAt}, {this.props.username}posted:
-        <br />
-        {this.props.text}
-        <div className="like-count">Likes: {this.state.likeCount}</div>
-        <button onClick={this.handleLike}>
-          <span role="img" aria-label="Like">
-            like
-          </span>
-        </button>
-      </li>
+      <Form className="form-control">
+        <li className="Message">
+          At{this.props.createdAt}, {this.props.username}posted:
+          <br />
+          {this.props.text}
+          {/* <div className="like-count">Likes: {this.state.likes.length}</div> */}
+          <Button onClick={this.handleLike}>
+            <span role="img" aria-label="Like">
+              👍
+            </span>{" "}
+            {this.state.likes.length}
+          </Button>
+          <Button onClick={this.handleDeleteLike}>
+            <span role="img" aria-label="Like">
+              👎
+            </span>
+          </Button>
+        </li>
+      </Form>
     );
   }
 }
-export default Message
+export default Message;

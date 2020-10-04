@@ -12,7 +12,7 @@ class Home extends React.Component {
     render() {
         return (
           <div>
-            <Menu userIsNotAuthenticated={this.props.userIsNotAuthenticated} />
+
             <Login />
             <button className="registerButton">
              

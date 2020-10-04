@@ -1,5 +1,4 @@
 h1 {
-
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -11,10 +10,13 @@ ul {
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+    width: 300px;
     align-items: center;
 }
+
 li {
-    margin:5px;
+    margin: 5px;
     list-style: none;
     border: 1px, black, solid;
 }
+

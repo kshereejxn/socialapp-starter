@@ -1,5 +1,5 @@
 import axios from "axios"
-import {store } from "../../redux/"
+import { store } from "../../redux/"
 class DataService {
   constructor(
     baseURL = "https://socialapp-api.herokuapp.com",
@@ -8,15 +8,18 @@ class DataService {
     this.baseURL = baseURL;
     this.client = client;
   }
+
   getUserName() {
-    const loginData = JSON.parse(localStorage.getItem("login"));
-    const { username } = loginData.result.username;
+    const { username } = store.getState().auth.login.result;
     return username;
   }
+
   getToken() {
     const { token } = store.getState().auth.login.result;
     return token;
   }
+ 
+ 
   getRecentMessages() {
     return this.client
       .get(this.baseURL + "/messages?limit=20")
@@ -24,12 +27,16 @@ class DataService {
         return response.data.messages;
       });
   }
+  
   registerUser(userData) {
-    return this.client.post(this.url + "/users", userData);
+    console.log(userData)
+    return this.client.post(this.baseURL + "/users", userData);
   }
+  
   getUsers() {
-    return this.client.get(this.url + "/users");
+    return this.client.get(this.baseURL + "/users");
   }
+  
   postLike(messageId) {
     const requestBody = { messageId };
     const config = {
@@ -37,23 +44,24 @@ class DataService {
         Authorization: `Bearer ${this.getToken()}`,
       },
     };
+
     return this.client
       .post(this.baseURL + "/likes", requestBody, config)
       .then((response) => response.data.like);
   }
+
+deleteLike(likeId) {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${this.getToken()}`,
+    },
+  };
+  
+  return this.client
+    .delete(`${this.baseURL}/likes/${likeId}`, config)
+    
 }
-//DeleteLike(messageId) {
-//    const requestBody = { messageId };
-//    const config = {
-//      headers: {
-//        Authorization: `Bearer ${this.getToken()}`,
- //     },
-//    };
-//    return this.client
-//      .post(this.baseURL + "/likes", requestBody, config)
-//      .then((response) => response.data.like);
-// }
 
-
+}
 
 export default DataService
