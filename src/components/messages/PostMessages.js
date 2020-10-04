@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import DataService from "../../services/dataService";
 import "./PostMessages.css"
 

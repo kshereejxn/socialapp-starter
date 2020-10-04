@@ -6,70 +6,70 @@ import { store } from "../redux";
 class DataService {
 
     constructor
-        (baseURL = "https://socialapp-api.herokuapp.com", 
-        client = axios.create()
-    ){
+        (baseURL = "https://socialapp-api.herokuapp.com",
+            client = axios.create()
+        ) {
         this.baseURL = baseURL;
         this.client = client;
     }
-    registerUser(userData){
+    registerUser(userData) {
         return this.client
-        .post(this.baseURL + "/users", userData);
+            .post(this.baseURL + "/users", userData);
     }
-    getUsers(){
+    getUsers() {
         return this.client
-        .get(this.baseURL + "/users?limit=20")
-        .then(response => {
-            return response.data.users
-        })
+            .get(this.baseURL + "/users?limit=20")
+            .then(response => {
+                return response.data.users
+            })
     }
-    getUsername(){
+    getUsername() {
         const loginData = JSON.parse(localStorage.getItem("login"))
-        const {username} = loginData.result.username
+        const { username } = loginData.result.username
 
         return username
     }
-    getToken (){
-        const {token} = store.getState().auth.login.result
+    getToken() {
+        const { token } = store.getState().auth.login.result
 
         return token
     }
     getRecentMessages() {
         return this.client
-        .get(this.baseURL + "/messages?limit=20")
-        .then(response => {
-             return response.data.messages
+            .get(this.baseURL + "/messages?limit=20")
+            .then(response => {
+                return response.data.messages
             })
-        }
-    postLike(messageId){
-            const requestBody = {messageId}
-             const config ={ 
-                 headers: {
-                    Authorization: `Bearer ${this.getToken()}`
-                    }
-                }
-            return this.client
-            .post(this.baseURL +"/likes", requestBody,config )
-            .then(response => response.data.like)
-        
+    }
+    postLike(messageId) {
+        const requestBody = { messageId }
+        const config = {
+            headers: {
+                Authorization: `Bearer ${this.getToken()}`
             }
-           
-                postMessage(messageData) {
-                    console.log(messageData.text);
-                    const requestBody = {messageData}
-                    const config ={ 
-                        headers: {
-                           Authorization: `Bearer ${this.getToken()+ messageData}`
-                           }
-                       }
-
-                    return this.client
-                    .post(this.baseURL + '/messages')
-                    .then (response => response.data.messages)
-                        
-                         
-                    
-                }
         }
+        return this.client
+            .post(this.baseURL + "/likes", requestBody, config)
+            .then(response => response.data.like)
+
+    }
+
+    postMessage(messageData) {
+        console.log(messageData.text);
+        const requestBody = { messageData }
+        const config = {
+            headers: {
+                Authorization: `Bearer ${this.getToken() }`
+            }
+        }
+
+        return this.client
+            .post(this.baseURL + '/messages', requestBody, config)
+            .then(response => response.data.messages)
+
+
+
+    }
+}
 
 export default DataService;

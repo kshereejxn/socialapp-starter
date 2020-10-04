@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import axios from "axios"
+import axios from 'axios'
 import "../src/App.css";
 import loginForm from "../src/components/loginForm/LoginForm";
 import RegistrationForm from "./components/registrationForm/RegistrationForm";
