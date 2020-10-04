@@ -1,6 +1,7 @@
 import React from "react";
 import Messages from "../components/messages/Messages";
 import Menu from "../components/menu/Menu";
+
 import DataService from "../services/dataService";
 
 
@@ -19,6 +20,7 @@ if (this.state.messages.length === 0){
 return(
         <div className="MessageFeed">
             <Menu /> 
+            
          <h1>Message Feed</h1>
          <h3>loading...</h3>
         </div>
@@ -37,6 +39,8 @@ return (
         </div>
     )
 }
+
+
 }
 
 export default MessageFeed;

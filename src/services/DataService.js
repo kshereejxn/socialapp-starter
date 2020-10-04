@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { store } from "../redux";
 
+
+
 class DataService {
 
     constructor
@@ -49,6 +51,25 @@ class DataService {
             return this.client
             .post(this.baseURL +"/likes", requestBody,config )
             .then(response => response.data.like)
+        
+            }
+           
+                postMessage(messageData) {
+                    console.log(messageData.text);
+                    const requestBody = {messageData}
+                    const config ={ 
+                        headers: {
+                           Authorization: `Bearer ${this.getToken()+ messageData}`
+                           }
+                       }
+
+                    return this.client
+                    .post(this.baseURL + '/messages')
+                    .then (response => response.data.messages)
+                        
+                         
+                    
+                }
         }
-}
+
 export default DataService;
