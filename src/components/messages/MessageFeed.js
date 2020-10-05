@@ -18,24 +18,29 @@ class MessageFeed extends React.Component {
 render (){
 if (this.state.messages.length === 0){
 return (
-  <div className="MessageFeed">
+  <div>
     <Menu isAuthenticated={this.props.isAuthenticated} />
-    <h1>Message Feed</h1>
-    <h3>loading...</h3>
+    <div className="MessageFeed">
+      <h1>Message Feed</h1>
+      <h3>loading...</h3>
+    </div>
   </div>
 );
 }
 return (
-  <div className="MessageFeed">
+    <div>
     <Menu isAuthenticated={this.props.isAuthenticated} />
+  <div className="MessageFeed">
+ 
     <h1>Message Feed</h1>
     <PostMessage/>
+    
     <ul>
       {this.state.messages.map((msg) => (
         <Likes key={msg.id} {...msg} />
       ))}
     </ul>
-    
+    </div>
   </div>
 );
 }

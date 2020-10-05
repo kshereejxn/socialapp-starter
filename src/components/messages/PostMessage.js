@@ -8,6 +8,7 @@ class PostMessage extends React.Component {
     super(props);
     this.client = new DataService();
     this.state = {
+      
       text: "",
       submitted: false
     };

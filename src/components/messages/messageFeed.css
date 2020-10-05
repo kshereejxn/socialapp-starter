@@ -1,25 +1,26 @@
-h1 {
+.MessageFeed {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    width: auto;
 }
 
+h1 {
+    width: 300px;
+}
+
+h4 {
+    width: 300px;
+}
+.PostMessage{
+    width: 300px;
+}
 ul {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 300px;
-    align-items: center;
-}
-
-li {
-    margin: 5px;
-    list-style: none;
-    border: 1px, black, solid;
-}
-
-#message {
-    width: 300px;
+    width: auto;
+    align-self: center;
 }

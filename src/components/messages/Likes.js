@@ -1,7 +1,7 @@
 import React from "react";
 import { Form,  Button } from "semantic-ui-react";
 import DataService from "../services/dataService";
-
+import DeleteMessage from "./DeleteMessage"
 
 class Likes extends React.Component {
   state = {
@@ -50,27 +50,27 @@ class Likes extends React.Component {
 
   render() {
     return (
-     <div>
-      
-      <Form className="form-control">
-        <li className="Message">
-          At{this.props.createdAt}, {this.props.username}posted:
-          <br />
-          {this.props.text}
-          {/* <div className="like-count">Likes: {this.state.likes.length}</div> */}
-          <Button onClick={this.handleLike}>
-            <span role="img" aria-label="Like">
-              👍
-            </span>{" "}
-            {this.state.likes.length}
-          </Button>
-          <Button onClick={this.handleDeleteLike}>
-            <span role="img" aria-label="Like">
-              👎
-            </span>
-          </Button>
-        </li>
-      </Form>
+      <div>
+        <Form className="form-control">
+          <li className="Message">
+            At{this.props.createdAt}, {this.props.username}posted:
+            <br />
+            {this.props.text}
+            {/* <div className="like-count">Likes: {this.state.likes.length}</div> */}
+            <Button onClick={this.handleLike}>
+              <span role="img" aria-label="Like">
+                👍
+              </span>{" "}
+              {this.state.likes.length}
+            </Button>
+            <Button onClick={this.handleDeleteLike}>
+              <span role="img" aria-label="Like">
+                👎
+              </span>
+            </Button>
+            
+          </li>
+        </Form>
       </div>
     );
   }
