@@ -8,7 +8,19 @@ class DataService {
     this.baseURL = baseURL;
     this.client = client;
   }
-
+  putUserPic(picture) {
+    const { username } = store.getState().auth.login.result;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${this.getToken()}`,
+      },
+    };
+    return this.client.put(
+      `${this.baseURL}/users/${username}/picture`,
+      picture,
+      config
+    );
+  }
   getUserName() {
     const { username } = store.getState().auth.login.result;
     return username;
@@ -26,7 +38,6 @@ class DataService {
         return response.data.messages;
       });
   }
-  
 
   registerUser(userData) {
     console.log(userData);
@@ -34,7 +45,11 @@ class DataService {
   }
 
   getUsers() {
-    return this.client.get(this.baseURL + "/users");
+    return this.client
+      .get(this.baseURL + "/users?limit=20")
+      .then((response) => {
+        return response.data.users;
+      });
   }
 
   postLike(messageId) {
@@ -60,7 +75,7 @@ class DataService {
     return this.client.delete(`${this.baseURL}/likes/${likeId}`, config);
   }
   postMessage(messageData) {
-    const loginData = JSON.parse(localStorage.getItem("login"))
+    const loginData = JSON.parse(localStorage.getItem("login"));
     const requestBody = { text: messageData };
     const config = {
       headers: {
