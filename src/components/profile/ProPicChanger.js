@@ -2,6 +2,7 @@ import "antd/dist/antd.css";
  import { Modal, Button } from "antd";
 import React from "react";
 
+
 class ProfilePicChanger extends React.Component {
   constructor (props){
         super(props);
@@ -40,7 +41,7 @@ class ProfilePicChanger extends React.Component {
     });
   };
   render(){
-    const imageMapper = this.state.imagesArray.map((image, index)=>{
+    const imageMapper = this.state.imagesArray.map((image)=>{
       return (
         <img src={image} alt={image.alt}
         onClick={()=>this.props.handleImageChange(image)}
@@ -49,20 +50,21 @@ class ProfilePicChanger extends React.Component {
         )
     })
       return (
-  <div className="ProPicChanger">
-        <Button type="primary" onClick={this.showModal}>
-         Change Picture
-        </Button>
-        <Modal
-          title="Profile Pic Changer Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
-          {imageMapper}
-        </Modal>
-      </div>
-      )
+        <div className="ProPicChanger">
+          <Button type="primary" onClick={this.showModal}>
+            Change Picture
+          </Button>
+         
+          <Modal
+            title="Profile Pic Changer Modal"
+            visible={this.state.visible}
+            onOk={this.handleOk}
+            onCancel={this.handleCancel}
+          >
+            {imageMapper}
+          </Modal>
+        </div>
+      );
   }
 }
 

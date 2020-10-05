@@ -1,9 +1,11 @@
 import React from "react"
-import Message from "../messages/Message"
+import Likes from "./Likes"
 import Menu from "../menu/Menu"
 import BackendService from "../services/dataService"
 import "./messageFeed.css"
 import { userIsAuthenticated } from "../../redux/HOCs";
+import PostMessage from "./PostMessage"
+
 class MessageFeed extends React.Component {
     state = { messages: [] }
     componentDidMount (){
@@ -27,11 +29,13 @@ return (
   <div className="MessageFeed">
     <Menu isAuthenticated={this.props.isAuthenticated} />
     <h1>Message Feed</h1>
+    <PostMessage/>
     <ul>
       {this.state.messages.map((msg) => (
-        <Message key={msg.id} {...msg} />
+        <Likes key={msg.id} {...msg} />
       ))}
     </ul>
+    
   </div>
 );
 }

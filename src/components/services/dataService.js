@@ -18,8 +18,7 @@ class DataService {
     const { token } = store.getState().auth.login.result;
     return token;
   }
- 
- 
+
   getRecentMessages() {
     return this.client
       .get(this.baseURL + "/messages?limit=20")
@@ -28,15 +27,16 @@ class DataService {
       });
   }
   
+
   registerUser(userData) {
-    console.log(userData)
+    console.log(userData);
     return this.client.post(this.baseURL + "/users", userData);
   }
-  
+
   getUsers() {
     return this.client.get(this.baseURL + "/users");
   }
-  
+
   postLike(messageId) {
     const requestBody = { messageId };
     const config = {
@@ -50,18 +50,28 @@ class DataService {
       .then((response) => response.data.like);
   }
 
-deleteLike(likeId) {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${this.getToken()}`,
-    },
-  };
-  
-  return this.client
-    .delete(`${this.baseURL}/likes/${likeId}`, config)
-    
+  deleteLike(likeId) {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${this.getToken()}`,
+      },
+    };
+
+    return this.client.delete(`${this.baseURL}/likes/${likeId}`, config);
+  }
+  postMessage(messageData) {
+    const loginData = JSON.parse(localStorage.getItem("login"))
+    const requestBody = { text: messageData };
+    const config = {
+      headers: {
+        Authorization: `Bearer ${loginData.result.token}`,
+      },
+    };
+    return this.client
+      .post(this.baseURL + "/messages", requestBody, config)
+      .then((response) => response.data.messages);
+  }
 }
 
-}
 
 export default DataService

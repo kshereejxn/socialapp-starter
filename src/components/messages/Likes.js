@@ -1,12 +1,14 @@
 import React from "react";
 import { Form,  Button } from "semantic-ui-react";
 import DataService from "../services/dataService";
-import "./messageFeed.css";
-class Message extends React.Component {
+
+
+class Likes extends React.Component {
   state = {
     likes: this.props.likes,
   };
   //
+  
   handleLike = () => {
     const dataService = new DataService();
     const username = dataService.getUserName();
@@ -48,6 +50,8 @@ class Message extends React.Component {
 
   render() {
     return (
+     <div>
+      
       <Form className="form-control">
         <li className="Message">
           At{this.props.createdAt}, {this.props.username}posted:
@@ -67,7 +71,8 @@ class Message extends React.Component {
           </Button>
         </li>
       </Form>
+      </div>
     );
   }
 }
-export default Message;
+export default Likes;
