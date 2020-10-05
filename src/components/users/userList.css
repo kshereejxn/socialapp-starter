@@ -13,6 +13,10 @@
       align-content: center;
 }
 
+h1 {
+  width: 400px;
+}
+
 ul {
   display: -webkit-box;
   display: -ms-flexbox;
